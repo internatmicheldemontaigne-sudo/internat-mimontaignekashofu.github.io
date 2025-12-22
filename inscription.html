@@ -1,87 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Inscription – Internat Michel de Montaigne de Kashofu</title>
-<style>
-/* ===== Body ===== */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    margin: 0;
-}
-
-/* ===== Header ===== */
-header {
-    background-color: #06470c;
-    color: white;
-    text-align: center;
-    padding: 30px;
-}
-header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-header p {
-    margin: 10px 0 0 0;
-    font-size: 1.1em;
-}
-
-/* ===== Main Section ===== */
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px;
-    text-align: center;
-}
-main p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-/* ===== Iframe (Formulaire) ===== */
-iframe {
-    width: 100%;
-    height: 1200px; /* Ajuste selon la longueur du formulaire */
-    border: none;
-    border-radius: 8px;
-}
-
-/* ===== Footer ===== */
-footer {
-    background-color: #06470c;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>Inscription - Internat Michel de Montaigne</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <header>
+        <h1>Internat Michel de Montaigne</h1>
+    </header>
 
-<header>
-    <h1>Inscription à l’Internat</h1>
-    <p>Internat Michel de Montaigne de Kashofu – Idjwi Sud</p>
-</header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="vie-internat.html">Vie à l’internat</a>
+        <a href="contact.html">Contact</a>
+        <a href="inscription.html">Inscription</a>
+    </nav>
 
-<main>
-    <p>
-        Veuillez remplir le formulaire ci-dessous pour inscrire votre élève.
-        Les informations seront enregistrées dans la base de données de l’internat.
-    </p>
+    <div class="container">
+        <h2>Inscription à l’Internat</h2>
+        <p>Veuillez remplir le formulaire ci-dessous pour inscrire votre élève. Les informations seront enregistrées dans la base de données de l’internat.</p>
 
-    <!-- FORMULAIRE GOOGLE -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc09a6RMsF3dV72UdBXXAKa0xYmee4853cSOisTTJCy_iqmrg/viewform?embedded=true">
-        Chargement…
-    </iframe>
-</main>
+        <!-- FORMULAIRE GOOGLE -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc09a6RMsF3dV72UdBXXAKa0xYmee4853cSOisTTJCy_iqmrg/viewform?embedded=true" 
+                width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">
+            Chargement…
+        </iframe>
+    </div>
 
-<footer>
-    © 2025 Internat Michel de Montaigne de Kashofu
-</footer>
-
+    <footer>
+        <p>&copy; 2025 Internat Michel de Montaigne</p>
+    </footer>
 </body>
 </html>
-
