@@ -5,44 +5,68 @@
     <title>Vie à l’internat - Internat Michel de Montaigne</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Style du diaporama -->
     <style>
+        /* Slider plein écran */
         .slider {
+            position: relative;
             width: 100%;
-            max-width: 700px;
-            height: 400px;
+            height: 500px; /* vous pouvez ajuster la hauteur */
             margin: 20px auto;
             overflow: hidden;
-            border-radius: 10px;
         }
 
-        .slides {
-            display: flex;
-            width: 500%; /* 5 images = 500% */
-            animation: slide 20s infinite; /* 20s pour 5 images, 4s chacune */
-        }
-
-        .slides img {
+        .slide {
+            position: absolute;
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
-        @keyframes slide {
-            0%   { transform: translateX(0%); }
-            20%  { transform: translateX(0%); }
+        .slide.active {
+            opacity: 1;
+        }
 
-            25%  { transform: translateX(-100%); }
-            40%  { transform: translateX(-100%); }
+        .caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            display: none;
+            text-align: center;
+            max-width: 80%;
+        }
 
-            45%  { transform: translateX(-200%); }
-            60%  { transform: translateX(-200%); }
+        .caption.active {
+            display: block;
+        }
 
-            65%  { transform: translateX(-300%); }
-            80%  { transform: translateX(-300%); }
+        /* Texte et liste */
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+            font-family: Arial, sans-serif;
+        }
 
-            85%  { transform: translateX(-400%); }
-            100% { transform: translateX(-400%); }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #555;
         }
     </style>
 </head>
@@ -50,10 +74,10 @@
 <body>
 
 <header>
-    <h1>Internat Michel de Montaigne</h1>
+    <h1 style="text-align:center;">Internat Michel de Montaigne</h1>
 </header>
 
-<nav>
+<nav style="text-align:center; margin-bottom: 20px;">
     <a href="index.html">Accueil</a>
     <a href="apropos.html">À propos</a>
     <a href="admissions.html">Admissions</a>
@@ -65,15 +89,22 @@
 <div class="container">
     <h2>Vie à l’internat</h2>
 
-    <!-- DIAPORAMA AUTOMATIQUE -->
+    <!-- DIAPORAMA PLEIN ÉCRAN -->
     <div class="slider">
-        <div class="slides">
-            <img src="images/internat1.jpg.jpg" alt="Chambres de l'internat">
-            <img src="images/internat2.jpg.jpg" alt="Salle d’étude">
-            <img src="images/internat3.jpg.jpg" alt="Repas des élèves">
-            <img src="images/internat4.jpg.jpg" alt="Activités sportives">
-            <img src="images/internat5.jpg.jpg" alt="Terrain de foot">
-        </div>
+        <img src="images/internat1.jpg" class="slide active" alt="Chambres de l'internat">
+        <div class="caption active">Chambres confortables et sécurisées</div>
+
+        <img src="images/internat2.jpg" class="slide" alt="Salle d’étude">
+        <div class="caption">Salle d'étude bien équipée</div>
+
+        <img src="images/internat3.jpg" class="slide" alt="Repas des élèves">
+        <div class="caption">Repas équilibrés pour les élèves</div>
+
+        <img src="images/internat4.jpg" class="slide" alt="Activités sportives">
+        <div class="caption">Activités sportives et culturelles</div>
+
+        <img src="images/internat5.jpg" class="slide" alt="Terrain de foot">
+        <div class="caption">Terrain de football</div>
     </div>
 
     <p>Nos élèves bénéficient :</p>
@@ -87,6 +118,30 @@
 <footer>
     <p>&copy; 2025 Internat Michel de Montaigne</p>
 </footer>
+
+<script>
+let slides = document.querySelectorAll(".slider .slide");
+let captions = document.querySelectorAll(".slider .caption");
+let current = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        captions[i].classList.remove("active");
+    });
+    slides[index].classList.add("active");
+    captions[index].classList.add("active");
+}
+
+// Changer d'image toutes les 4 secondes
+setInterval(function() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}, 4000);
+
+// Afficher la première légende au départ
+showSlide(0);
+</script>
 
 </body>
 </html>
